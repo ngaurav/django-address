@@ -160,6 +160,9 @@ class AddressTestCase(TestCase):
         self.assertEqual(unicode(self.ad1), u"1 Some Street, Melbourne, Victoria 3000, Australia")
         self.assertEqual(unicode(self.ad_empty), u"Northcote, Victoria 3070, Australia")
 
+    def test_auto_formatted(self):
+        self.assertEqual(str(self.ad1), self.ad1.formatted, self.ad1.formatted)
+
 
 class AddressFieldTestCase(TestCase):
     class TestModel(object):
