@@ -141,6 +141,9 @@ class AddressTestCase(TestCase):
         obj = Address.objects.create()
         self.assertRaises(ValidationError, obj.clean)
 
+    def test_formatted_autopopulation(self):
+        self.assertEqual(self.ad2.formatted, str(self.ad2), self.ad2.formatted)
+
     def test_ordering(self):
         qs = Address.objects.all()
         self.assertEqual(qs.count(), 4)
